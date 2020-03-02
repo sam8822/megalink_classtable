@@ -1,0 +1,102 @@
+GET http://localhost:3000/subscribers 
+
+###
+GET http://localhost:3000/subscribers/Jason
+
+###
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+  "name": "Jason",
+  "subscribedChannel": "Bennetts Channel"
+}
+
+###
+DELETE http://localhost:3000/subscribers/5e427f11e8e2ac61a42b70b7
+
+###
+PATCH http://localhost:3000/subscribers/5e4e9c3efd2b8938708ec61d
+Content-Type: application/json 
+
+{
+  "name": "Kevin"
+}
+
+###
+GET http://localhost:3000/api/course/
+
+###
+GET http://localhost:3000/api/course/MI306B001
+
+###
+POST http://localhost:3000/api/course
+Content-Type: application/json
+
+{
+  "id":"MI306B001",
+  "title":"統計學(下)",
+  "credits":3,
+  "requirelective":1,
+  "fullhalf":1,
+  "teacher":"楊維寧",
+  "total":"39"
+}
+
+###
+DELETE http://localhost:3000/api/course/5e4e90c9216c24412028e680
+
+###
+GET http://localhost:3000/api/group
+
+###
+POST   http://localhost:3000/api/group
+Content-Type: application/json
+
+{
+  "name":"台科大ㄐㄐ",
+  "description":"11223344"
+}
+
+###
+PATCH http://localhost:3000/api/group/5e4e9ee7ebfb9e58205a1abd
+Content-Type: application/json 
+
+{
+  "message": ["111","222"]
+}
+
+###
+GET http://localhost:3000/api/member
+
+###
+GET http://localhost:3000/api/member/5e500a04416ad9433cca9c22
+
+###
+POST http://localhost:3000/api/member
+Content-Type: application/json
+
+{
+  "account": "B10609039",
+  "password": "123456",
+  "familyname":"徐",
+  "firstname":"贊凱",
+  "studentid":"B10609039",
+  "course":["A","B"],
+  "email":"B10609039@mail.ntust.edu.tw",
+  "school":"NTUST"
+}
+
+###
+PATCH  http://localhost:3000/api/member/5e500a04416ad9433cca9c22
+Content-Type: application/json
+
+{
+  "account":"B10609039",
+  "password":"11223344",
+  "course":"103",
+  "group":"7777"
+}
+
+###
+DELETE http://localhost:3000/api/member/5e500a04416ad9433cca9c22

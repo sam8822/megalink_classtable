@@ -1,0 +1,30 @@
+require('dotenv').config({path:'.env/process.env'})
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const subscribersRouter = require('./routes/subscribers')
+const courseRouter=require('./routes/api/course')
+const groupRouter=require('./routes/api/group')
+const memberRouter=require('./routes/api/member')
+const TaskRouter=require('./routes/api/Task')
+const documentRouter=require('./routes/api/document')
+const messageRouter=require('./routes/api/message')
+const customizethingRouter=require('./routes/api/customizething')
+
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+const db = mongoose.connection
+db.on('error', (error) => console.error(error))
+db.once('open', () => console.log('connected to database'))
+
+app.use(express.json())
+app.use('/subscribers', subscribersRouter)
+app.use('/api/course',courseRouter)
+app.use('/api/group',groupRouter)
+app.use('/api/member',memberRouter)
+app.use('/api/task',TaskRouter)
+app.use('/api/document',documentRouter)
+app.use('/api/message',memberRouter)
+app.use('/api/customizething',customizethingRouter)
+
+app.listen(3000, () => console.log('server started'))
+
